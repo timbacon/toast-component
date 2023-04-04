@@ -1,5 +1,5 @@
 import React from 'react';
-import useEscapeKey from '../../hooks/useEscapeKey';
+import useKeyDown from '../../hooks/useKeyDown';
 
 import Toast from '../Toast';
 import { ToastsContext } from '../ToastProvider/ToastProvider';
@@ -7,7 +7,8 @@ import styles from './ToastShelf.module.css';
 
 function ToastShelf() {
     const { toasts = [], clearToasts } = React.useContext(ToastsContext);
-    useEscapeKey(clearToasts);
+    // useEscapeKey(clearToasts);
+    useKeyDown('Escape', clearToasts);
 
     return (
         <ol
